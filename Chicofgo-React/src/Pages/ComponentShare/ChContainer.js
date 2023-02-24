@@ -1,18 +1,19 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import Path from '../../Layout/Item/Path/Path';
 import PropTypes from 'prop-types';
-import './ChContainer.scss'
+import './ChContainer.scss';
 
 function Layout(props) {
   return (
-    <Container className='rwd'>
+    <Container className="rwd">
       <Row className={`justify-content-center`}>
         <Col
-          xs={12} md={10}
+          xs={12}
+          md={10}
           style={{
             marginBottom: '110px',
             minHeight: '100vh',
-            padding: '5px'
+            padding: '5px',
           }}
         >
           <Path

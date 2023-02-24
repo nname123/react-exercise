@@ -1,16 +1,19 @@
 import React from 'react';
 import List from './List';
+import ProductFilter from './ProductFilter';
 import './Products.scss';
-import { Button, Nav, Image, Col, Row, Container } from 'react-bootstrap';
+import { Button, Form, InputGroup, Col, Row, Container } from 'react-bootstrap';
 
 const Products = () => {
   return (
-    <Container>
+    <Container fluid>
       <Row>
-        <Col>Search</Col>
+        <Col className="my-3"></Col>
       </Row>
       <Row>
-        <Col className="col-3">篩選</Col>
+        <Col className="col-3 ">
+          <ProductFilter />
+        </Col>
         <Col className="col-9">
           <List />
         </Col>

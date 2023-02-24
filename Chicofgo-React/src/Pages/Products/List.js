@@ -23,7 +23,7 @@ function List() {
     width: '28px',
     height: '28px',
     borderRadius: '3px',
-    textAlign: 'center',
+    // textAlign: 'center',
     cursor: 'pointer',
   };
 
@@ -99,21 +99,23 @@ function List() {
           style={{
             display: 'inline-block',
             margin: '2px',
-            backgroundColor: page === i ? '#00d1b2' : '',
-            borderColor: page === i ? '#00d1b2' : '#dbdbdb',
+            backgroundColor: page === i ? '#366f54' : '',
+            borderColor: page === i ? '#366f54' : '#dbdbdb',
             color: page === i ? '#fff' : '#363636',
             borderWidth: '1px',
             width: '28px',
             height: '28px',
             borderRadius: '3px',
-            textAlign: 'center',
-            cursor: 'pointer',
+            // textAlign: 'center',
+            cursor: page === i ? 'default' : 'pointer',
           }}
           key={i}
           onClick={(e) => {
             setPage(i);
             // 處理網址
-            navigate(`/products/${i}`);
+            if (page !== i) {
+              navigate(`/products/${i}`);
+            }
           }}
         >
           {i}
@@ -168,7 +170,7 @@ function List() {
       <Row>
         {data.map((item) => {
           return (
-            <Col className="col-3 my-2">
+            <Col className="col-6 col-lg-3 col-md-4 my-2">
               <ThisCard product_id={item.id} />
             </Col>
           );
@@ -176,7 +178,14 @@ function List() {
       </Row>
       <Row>
         <Col className="text-center mt-3 ">
-          <ul>{getPages()}</ul>
+          <ul
+            className="align-middle"
+            style={{
+              lineHeight: '1.8rem',
+            }}
+          >
+            {getPages()}
+          </ul>
           {/* 目前在第 {page} 頁 */}
         </Col>
       </Row>
