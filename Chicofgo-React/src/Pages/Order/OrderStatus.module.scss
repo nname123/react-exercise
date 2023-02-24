@@ -1,0 +1,173 @@
+.orderTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: rgb(161, 113, 98);
+}
+
+.orderStatusTitle {
+
+  // color: rgb(161, 113, 98);
+  h4 {
+    font-size: 25px;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 15px;
+    font-weight: 700;
+  }
+}
+
+@media (max-width:768px) {
+  .orderStatusTitle {
+    h4 {
+      font-size: 16px;
+      margin-bottom: 0;
+    }
+
+    p {
+      display: none;
+    }
+
+    svg {
+      width: 30px;
+    }
+  }
+}
+
+.contactShop {
+
+  p,
+  span {
+    margin: 0;
+    font-size: 15px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  svg {
+    margin-bottom: 4px;
+    margin-right: 4px;
+  }
+
+  p {
+    color: rgb(161, 113, 98);
+  }
+
+  span {
+    color: rgb(54, 111, 84);
+    margin-left: 10px;
+  }
+}
+
+.poductInfo {
+  border-top: 5px solid rgb(238, 238, 238);
+}
+
+.poductInfoBorder {
+  border-left: 5px solid rgb(238, 238, 238);
+  border-right: 5px solid rgb(238, 238, 238);
+  border-bottom: 5px solid rgb(238, 238, 238);
+}
+
+.orderDetail {
+  svg {
+    padding-bottom: 4px;
+  }
+}
+
+.orderItemImg {
+  img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+  }
+}
+
+.orderItem {
+  background: #eeeeee;
+  padding: 12.5px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  p {
+    font-size: 18px;
+  }
+
+  span {
+    font-size: 16px;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width:768px) {
+  .orderItem {
+    padding: 5px;
+
+    p {
+      font-size: 16px;
+      margin-bottom: 3px;
+    }
+
+    span {
+      font-size: 12px;
+    }
+  }
+}
+
+.recipientTable {
+  tr {
+    height: 50px;
+    vertical-align: middle;
+  }
+
+  th {
+    width: 20%;
+    font-size: 1.1rem;
+    color: rgb(166, 155, 132);
+  }
+
+  td {
+    width: 30%;
+    font-size: 0.8rem;
+    color: black;
+  }
+}
+
+@media (max-width:768px) {
+  .recipientTable {
+    th {
+      font-size: 0.8rem;
+      white-space: nowrap
+    }
+    td{
+      font-size: 0.6rem;
+    }
+  }
+}
+
+.bgYellow {
+  background-color: rgb(248, 245, 234);
+}
+
+.priceTotal {
+  font-size: 18px;
+  font-weight: 700;
+  color: black;
+
+  span {
+    font-size: 28px;
+    font-weight: 700;
+    color: rgb(54, 111, 84);
+  }
+}
+
+@media (max-width:768px) {
+  .priceTotal{
+    font-size: 18px;
+    span{
+      font-size: 22px;
+    }
+  }
+}

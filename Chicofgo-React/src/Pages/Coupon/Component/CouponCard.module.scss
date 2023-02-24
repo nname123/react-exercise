@@ -1,0 +1,17 @@
+.ticketContent {
+  background-image: url(../../../Img/Coupon/coupon-card-bg.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  h3 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
+@media (max-width:768px) {
+  .ticketContent{
+    h3{
+      font-size: 16px;
+    }
+  }
+}

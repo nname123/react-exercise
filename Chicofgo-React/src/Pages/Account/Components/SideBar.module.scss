@@ -1,0 +1,32 @@
+.SideBarBody {
+  background: rgba(238, 238, 238, 0.9);
+  padding-top: 100px;
+  margin: 0 auto;
+  text-align: center;
+
+  a {
+    max-width: 200px;
+    padding: 0;
+
+    p {
+      color: rgb(166, 155, 132);
+      margin: auto;
+      font-weight: 700;
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width:768px) {
+  .SideBarBody {
+    padding: 10px 5px;
+    a {
+      z-index: 999;
+      margin: 0 5px;
+      p {
+        font-size: 16px;
+      }
+    }
+
+  }
+}

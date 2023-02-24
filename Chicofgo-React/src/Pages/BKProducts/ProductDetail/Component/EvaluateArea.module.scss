@@ -1,0 +1,37 @@
+.eva_contorl{
+    width: 100%;
+    height: auto;
+
+    .filter_area{
+        width: 100%;
+        height: auto;
+        background-color: rgb(250, 250, 250);
+        padding: 24px;
+
+        .rating_area{
+            width: 100%;
+            height: auto;
+            color:rgb(73, 67, 61) ;
+            font-weight: bold;
+
+            Form {
+                color: rgb(161, 113, 98);
+            }
+           
+        }
+        .year_area{
+            width: 100%;
+            height: auto;
+            color:rgb(73, 67, 61) ;
+            font-weight: bold;
+
+            Form {
+                color: rgb(161, 113, 98);
+            }
+        }
+    }
+
+
+}
+
+

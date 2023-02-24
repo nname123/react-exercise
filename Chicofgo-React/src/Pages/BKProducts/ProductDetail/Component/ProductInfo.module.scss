@@ -1,0 +1,130 @@
+.info_contorl {
+  p,
+  h3,
+  h4 {
+    color: rgb(73, 67, 61);
+  }
+}
+
+.spe_text {
+  font-size: 13px;
+}
+
+
+.title_box{
+    width: 100%;
+    height: 150px;
+  
+}
+
+.content_box{
+    width: 100%;
+    height: 150px;
+    font-weight:bold;
+    line-height: 30px;
+    letter-spacing: 2px;
+   
+}
+.minus_style{
+    width: 36px;
+    height: 36px;
+    background-color: transparet;
+    border: 2px solid ;
+    border-radius: 8px 0 0 8px;
+    outline: none;
+    color:  rgb(73, 67, 61) ;
+    cursor: pointer;
+    background: center center / 16px 16px no-repeat;
+    flex-shrink: 0;
+    background: url(../../../../Img/minus.svg) center
+        center / 16px 16px no-repeat;
+}
+
+.input_style {
+  height: 36px;
+  padding: 0px;
+  border-left: none;
+  border-right: none;
+  font-size: 16px;
+  outline: none;
+  border-top: 2px solid rgb(73, 67, 61);
+  border-bottom: 2px solid rgb(73, 67, 61);
+  text-align: center;
+  width: 50px;
+  flex-shrink: 0;
+  background-color: #fefefd;
+}
+.plus_style {
+  width: 36px;
+  background-color: transparent;
+  height: 36px;
+  outline: none;
+  border-radius: 0 8px 8px 0;
+  border: 2px solid;
+  cursor: pointer;
+  color: rgb(73, 67, 61);
+  background: url(../../../../Img/plus.svg) center center / 16px 16px no-repeat;
+  flex-shrink: 0;
+}
+.btn_collect {
+  color: whitesmoke;
+  width: 184px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 3px 12px black;
+  background-color: rgb(73, 67, 61);
+  text-decoration: none;
+  outline: none;
+  &:active {
+    outline: none;
+  }
+  box-shadow: 0 3px 4px #0005;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.btn_cart {
+  margin-left: 70px;
+  margin-top: 77px;
+  color: whitesmoke;
+  width: 184px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 3px 12px black;
+  background-color: rgb(54, 111, 84);
+  text-decoration: none;
+  outline: none;
+  &:active {
+    outline: none;
+  }
+  box-shadow: 0 3px 4px #0005;
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.box{
+  width: 170px;
+}
+
+.o_box{
+  margin-left: 10px;
+}
+
+@media  (max-width: 768px){
+  .info_contorl{
+    width: 400px;
+    padding: 10px;
+  }
+.title_box{
+  width: 380px;
+}
+
+
+  
+}

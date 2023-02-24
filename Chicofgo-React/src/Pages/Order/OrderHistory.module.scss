@@ -1,0 +1,22 @@
+.orderTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: rgb(161, 113, 98);
+}
+.orderSubTitle {
+  font-size: 14px;
+  color: black;
+}
+.orderContent {
+  font-size: 14px;
+  font-weight: 700;
+  color: black;
+  .orderContentBtn {
+    font-size: 1rem;
+    background-color: rgb(161, 113, 98);
+    padding: 0.2rem 0.5rem 0.5rem 0.5rem;
+    border-radius: 10px;
+    border: 0px solid #000;
+    color: white;
+  }
+}

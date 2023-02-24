@@ -1,0 +1,28 @@
+.shoppingcartTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: rgb(161, 113, 98);
+}
+.totalSum {
+  span {
+    font-size: 1.5rem;
+    color: rgb(54, 111, 84);
+    font-weight: 700;
+    padding-left: 10px;
+  }
+}
+.checkoutTable {
+  td,
+  th {
+    width: auto;
+  }
+  th {
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-style: Black;
+    font-size: 20px;
+    line-height: 24px;
+    vertical-align: top;
+    color: rgb(166, 155, 132);
+  }
+}

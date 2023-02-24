@@ -1,0 +1,22 @@
+footer {
+  margin: auto;
+  min-height: 370px;
+  background-color: rgb(238, 238, 238);
+}
+
+.foot_a {
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 17px;
+  color: black;
+  font-weight: bold;
+}
+
+.sociallink a img {
+  width: 48px;
+  height: 48px;
+  margin-top: 20px;
+}
+.sociallink {
+  margin-top: -20px;
+}

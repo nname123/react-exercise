@@ -1,0 +1,18 @@
+.BusinessSiderbarLink{
+    text-decoration : none;
+    color: rgb(161, 113, 98);
+}
+
+.BusinessSiderbarLink:hover{
+    color: rgb(166, 155, 132);
+   border-bottom: 1px solid rgb(73, 61, 6);
+}
+
+@media(max-width:768px){
+    .BusinessUl{
+        flex-direction: row;
+        height: 30vh;
+        display:flex;
+        flex-direction:row;
+    }
+}

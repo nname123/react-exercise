@@ -1,0 +1,12 @@
+.pagination .page-link{
+    border:1px solid rgb(238, 238, 238);
+    background-color: #fff;
+    color: rgb(161, 113, 98);
+}
+
+.pagination .active .page-link {
+    background-color: rgb(161, 113, 98);
+    color: #fff;
+    border: 1px solid rgb(161, 113, 98);
+ 
+  }

@@ -1,0 +1,24 @@
+.slick-prev:before,
+.slick-next:before{
+    color: rgb(161, 113, 98);
+}
+
+button.slick-arrow.slick-next{
+    margin-right: 20px;
+}
+.slick-dots li button:before{
+    color: rgb(214, 184, 128);
+}
+.slick-dots li.slick-active button:before
+{
+    color: rgb(161, 113, 98);
+}
+
+.slick-list {
+    height: 360px;
+    overflow-x: hidden;
+}
+.t_color {
+   color: rgb(161, 113, 98);
+}
+

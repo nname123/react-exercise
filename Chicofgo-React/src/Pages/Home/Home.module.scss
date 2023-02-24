@@ -1,0 +1,131 @@
+@import 'https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&family=Roboto:wght@400;700;900&display=swap';
+
+.homePage {
+  // max-width: 1440px;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.adBanner {
+  // height: 250px;
+  width: 100%;
+}
+@media screen and (min-width: 979px) {
+  // 如果使用者之視窗寬度介於 768px ~ 979px，將會再載入這裡的 CSS。
+  .adBanner {
+    height: 250px;
+  }
+}
+
+@media screen and (max-width: 979px) {
+  // 如果使用者之視窗寬度 <= 768px，將會再載入這裡的 CSS。
+}
+
+.homeCategory {
+  height: 100px;
+  background: rgb(238, 238, 238);
+  border: 9px solid #fafafa;
+}
+.categoryTitle {
+  color: rgb(161, 113, 98);
+  font-weight: 700;
+}
+span {
+  color: rgb(73, 67, 61);
+  margin: 0;
+  font-weight: 500;
+}
+
+.pageTitle p {
+  font-size: 32px;
+  font-weight: 700;
+  // color: rgb(161, 113, 98);
+}
+
+.cardListS p {
+  background-image: url(../../Img/Home/RecommendedToday.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px 20px 20px 20px;
+  z-index: 1;
+}
+
+.pageTwo {
+  // height: 100vh;
+  background: rgb(248, 245, 234);
+}
+.pageTitle2 p {
+  font-size: 32px;
+  font-weight: 700;
+  color: rgb(54, 111, 84);
+}
+.pageTwoBg {
+  background: #ffffff;
+  border-radius: 50px;
+  padding: 30px;
+  margin: 30px;
+}
+.pageTwoBg p {
+  background: rgb(54, 111, 84);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  padding: 1.5rem 0.5rem 1.5rem 0.5rem;
+  line-height: 1.2rem;
+  z-index: 1;
+  border-radius: 50%;
+}
+.subTitle {
+  font-size: 27px;
+  font-weight: 700;
+  color: rgb(161, 113, 98);
+}
+.pageTwoBtn {
+  // color: rgb(250, 250, 250);
+  // background: rgb(54, 111, 84);
+  // border: 0px solid #000;
+  // border-radius: 20px;
+  // font-weight: 700;
+}
+.pageTwoBg h5 {
+  background: rgb(54, 111, 84);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  padding: 1rem;
+  line-height: 1.2rem;
+  z-index: 1;
+  border-radius: 50%;
+}
+.pageBgGray {
+  background: rgb(238, 238, 238);
+  border-radius: 60px;
+}
+.leftUpImgBody {
+  z-index: 1;
+}
+.leftUpImg {
+  width: 120px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+.leftUpImg2 {
+  width: 180px;
+  object-fit: contain;
+}
+
+.picWithText {
+  font-size: 12px;
+}
+.pageBgGray2 {
+  background: rgb(238, 238, 238);
+}
+.pageBgWhite {
+  background: #ffffff;
+}

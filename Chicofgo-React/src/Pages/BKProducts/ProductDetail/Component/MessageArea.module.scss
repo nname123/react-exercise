@@ -1,0 +1,119 @@
+.message_control {
+    width: 100%;
+    height:auto;
+    background-color: rgb(238, 238, 238);
+    padding: 0 100px 0 100px;
+
+    .message_box{
+        width: 100%;
+        height: 250px;
+        background-color: rgb(250, 250, 250);
+        padding: 24px 36px 24px 0;
+
+        .member_pic{
+            width: 300px;
+            height: 100%;
+
+            background-color: rgb(250, 250, 250);
+            padding-top: 3%;
+
+            .main_pic{
+                width: 140px;
+                height: 140px;
+                border-radius: 50%;
+                background-color: palegoldenrod;
+            }
+        }
+
+        .message_info{
+            width: 570px;
+            height: 100%;
+            padding: 10px 20px;
+            background-color: rgb(238, 238, 238);
+
+            .message_rating{
+                height: 27px;
+            }
+
+            .message_time{
+                height: 27px;
+                border-bottom: 2px solid rgb(250, 250, 250);
+            }
+
+            .speak{
+                width: 100%;
+                height: 100%;
+                padding: 10px 0;
+
+                word-wrap: break-word;
+            }
+        }
+    }
+}
+
+@media  (max-width: 768px){
+
+    .message_control {
+        width: 100%;
+        height:auto;
+        background-color: rgb(238, 238, 238);
+        padding: 10px;
+        margin-top: 1px;
+
+        .message_box{
+            width: 100%;
+            height:auto;
+            background-color: rgb(250, 250, 250);
+            padding: 10px;
+
+
+            .member_pic{
+                width: 100px;
+                height: 100%;
+               margin-right: 10px;
+                background-color: rgb(250, 250, 250);
+                // padding-top: 15%;
+
+                .main_pic{
+                    width: 80px;
+                    height:80px;
+                    border-radius: 50%;
+                    background-color: palegoldenrod;
+                }
+            }
+
+            .message_info{
+                width: 570px;
+                height: 100%;
+                padding: 10px ;
+                background-color: rgb(238, 238, 238);
+
+                .message_rating{
+                    height: 27px;
+                }
+
+                .message_time{
+                    height: 27px;
+                    border-bottom: 2px solid rgb(250, 250, 250);
+                }
+
+                .speak{
+                    width: 100%;
+                    height: 100%;
+                    padding: 10px 0;
+
+                    word-wrap: break-word;
+                }
+
+
+            }
+        }
+    }
+
+    .member_name{
+        width: 100px;
+        overflow: hidden;
+
+    }
+
+}
