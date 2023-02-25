@@ -1,7 +1,16 @@
 import style from './ThisCard.module.scss';
 import { v4 } from 'uuid';
 import { FaShoppingCart, FaBookmark } from 'react-icons/fa';
-import { Card, Row, Col, Button, Container, Modal } from 'react-bootstrap';
+import {
+  Card,
+  Row,
+  Col,
+  Button,
+  Container,
+  Modal,
+  Placeholder,
+  Spinner,
+} from 'react-bootstrap';
 import axios from 'axios';
 import React, { useState, useEffect, useLayoutEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -23,13 +32,13 @@ function ThisCard(props) {
   const handleCloseC = () => setIsShowC(false);
   const handleCloseTF = () => setShowTF(false);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     async function getProductData() {
       try {
         let response = await axios.get(
           `http://localhost:3001/api/products/productData/${product_id}`
         );
-        console.log(response.data[0]);
+        // console.log(response.data[0]);
         setBackendData(response.data[0]);
         if (response.data[0].name.length > 10) {
           let chunkSize = 10;
@@ -152,22 +161,43 @@ function ThisCard(props) {
         className={`${style.LinkHover} text-decoration-none chicofgo_dark_font chicofgo-font`}
         to={`/products/product_detail/${product_id}`}
       >
-        <Card.Img
-          variant="top"
-          src={`http://localhost:3001/api/images/productImg/coffee_${product_id}/coffee_${product_id}-1.png`}
-        />
+        {product_id ? (
+          <Card.Img
+            variant="top"
+            src={`http://localhost:3001/api/images/productImg/coffee_${product_id}/coffee_${product_id}-1.png`}
+          />
+        ) : (
+          <div
+            className="d-flex justify-content-center align-items-center"
+            style={{ minHeight: '150px' }}
+          >
+            <Spinner animation="grow" variant="success" />
+            <Spinner animation="grow" variant="danger" />
+            <Spinner animation="grow" variant="warning" />
+            <Spinner animation="grow" variant="dark" />
+          </div>
+        )}
+
         <Card.Body className={`text-center  p-0 ${style.textOverFlowBody}`}>
-          <Card.Text className={`text-center`}>
-            {title[0] || ''}
-            <br />
-            {title[1] || ''}
-            <br />
-            {title[2] || ''}
-          </Card.Text>
+          {title[0] ? (
+            <Card.Text className={`text-center`}>
+              {title[0] || ''}
+              <br />
+              {title[1] || ''}
+              <br />
+              {title[2] || ''}
+            </Card.Text>
+          ) : (
+            <Placeholder as={Card.Text} animation="glow">
+              <Placeholder xs={7} /> <Placeholder xs={3} />{' '}
+              <Placeholder xs={4} /> <Placeholder xs={6} />{' '}
+              <Placeholder xs={8} />
+            </Placeholder>
+          )}
         </Card.Body>
         <Card.Body className={`text-center py-1`}>
           {new Array(backendData.rating).fill().map((star) => {
-            return <span key={v4()}>⭐</span>;
+            return <span key={star}>⭐</span>;
           })}
         </Card.Body>
       </Link>

@@ -1,10 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate, Link, NavLink } from 'react-router-dom';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
 import {
   Button,
-  Nav,
   InputGroup,
   Col,
   Row,
@@ -13,8 +11,7 @@ import {
   Form,
 } from 'react-bootstrap';
 
-function ProductFilter() {
-  let navigate = useNavigate();
+function ProductFilter(props) {
   const brands = [
     'Maxim',
     '微美咖啡',
@@ -70,38 +67,28 @@ function ProductFilter() {
 
       return newCheckedMap;
     });
+
     setCheckedList((prev) => {
       const prevList = prev[type] || [];
       const newList = event.target.checked
         ? [...prevList, name]
         : prevList.filter((item) => item !== name);
-
       return {
         ...prev,
         [type]: newList,
       };
     });
   };
-  // const { currentPage } = useParams();
-  // const [page, setPage] = useState(parseInt(currentPage, 10) || 1); // 目前在哪一頁
-  // const [totalPage, setTotalPage] = useState(0); // 總共有幾頁
-  // const [data, setData] = useState([]);
 
+  // 把資料傳回父層
   useEffect(() => {
-    // console.log('page 改變的 useEffect', page);
-    // async function getData() {
-    //   let response = await axios.get(
-    //     `http://localhost:3001/api/products/?page=${page}`
-    //   );
-    //   setData(response.data.data);
-    //   setTotalPage(response.data.pagination.totalPage);
-    // }
-    // getData();
-  }, []);
+    let data = checkedList;
+    props.onFilterChange(data);
+  }, [checkedList]);
 
   return (
     <Container>
-      <Row className="">
+      <Row>
         <Col>
           <div className="border-bottom pt-3 pb-2 ">
             <span className="fs-5 fw-semibold">商品搜尋</span>

@@ -127,7 +127,7 @@ function Home() {
               </Row>
               <Row>
                 <Col className={`${style.cardListS} position-relative m-5`}>
-                  <p class="position-absolute top-0 start-2 translate-middle ">
+                  <p className="position-absolute top-0 start-2 translate-middle ">
                     為您推薦
                   </p>
                   <CardListS
@@ -162,7 +162,7 @@ function Home() {
             <Col
               className={`${style.pageTwoBg} col-2 position-relative  d-none d-xl-inline`}
             >
-              <p class={`position-absolute top-0 start-2 translate-middle `}>
+              <p className={`position-absolute top-0 start-2 translate-middle `}>
                 New!
               </p>
               <CardListS
@@ -204,7 +204,7 @@ function Home() {
             <Col
               className={`${style.pageTwoBg} col-md-6 position-relative text-center`}
             >
-              <h5 class={`position-absolute top-0 start-2 translate-middle `}>
+              <h5 className={`position-absolute top-0 start-2 translate-middle `}>
                 限時
                 <br />
                 搶購
@@ -279,7 +279,7 @@ function Home() {
               <span className={`${style.subTitle} my-5`}>環境友善相關商品</span>
               <br />
               <p
-                class={`${style.leftUpImgBody} position-absolute top-5 start-0 translate-middle d-none d-xl-inline`}
+                className={`${style.leftUpImgBody} position-absolute top-5 start-0 translate-middle d-none d-xl-inline`}
               >
                 <Image src={require('../../Img/Home/bird_friendly.png')} />
                 {/* ./Component/bird_friendly.png */}
@@ -302,7 +302,7 @@ function Home() {
             >
               <span className={`${style.subTitle} `}>環境友善認證</span>
               <p
-                class={`${style.leftUpImgBody} position-absolute top-0 start-0 translate-middle  d-none d-xl-inline`}
+                className={`${style.leftUpImgBody} position-absolute top-0 start-0 translate-middle  d-none d-xl-inline`}
               >
                 <Image src={require('../../Img/Home/rain_friendly.png')} />
               </p>
@@ -318,7 +318,7 @@ function Home() {
               className={`${style.pageBgGray}  position-relative col-10 col-md-7 ms-md-3 py-3 d-flex `}
             >
               <p
-                class={`${style.leftUpImgBody} position-absolute top-5 start-0 translate-middle d-none d-xl-inline`}
+                className={`${style.leftUpImgBody} position-absolute top-5 start-0 translate-middle d-none d-xl-inline`}
               >
                 <Image
                   src={require('../../Img/Home/organic_certification.png')}

@@ -50,7 +50,6 @@ function List() {
   //   }
   //   getData();
   // }, []);
-
   const getPages = () => {
     let pages = [];
     // 計算顯示的頁數範圍
@@ -167,10 +166,10 @@ function List() {
     <Container>
       {error && <div>{error}</div>}
 
-      <Row>
+      <Row style={{ minHeight: '1470px' }}>
         {data.map((item) => {
           return (
-            <Col className="col-6 col-lg-3 col-md-4 my-2">
+            <Col key={item.id} className="col-6 col-lg-3 col-md-4 my-2">
               <ThisCard product_id={item.id} />
             </Col>
           );
