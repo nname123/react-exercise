@@ -10,8 +10,12 @@ import {
   Collapse,
   Form,
 } from 'react-bootstrap';
+import { useProduct } from '../../Contexts/ProductProvider';
 
-function ProductFilter(props) {
+function ProductFilter() {
+  const { products, setProducts, chooseCategory, setChooseCategory } =
+    useProduct();
+
   const brands = [
     'Maxim',
     '微美咖啡',
@@ -44,12 +48,6 @@ function ProductFilter(props) {
     items: {},
     origins: {},
   });
-  const [checkedList, setCheckedList] = useState({
-    brands: [],
-    cates: [],
-    items: [],
-    origins: [],
-  });
 
   const handleCheck = (event) => {
     const {
@@ -68,7 +66,7 @@ function ProductFilter(props) {
       return newCheckedMap;
     });
 
-    setCheckedList((prev) => {
+    setChooseCategory((prev) => {
       const prevList = prev[type] || [];
       const newList = event.target.checked
         ? [...prevList, name]
@@ -79,12 +77,6 @@ function ProductFilter(props) {
       };
     });
   };
-
-  // 把資料傳回父層
-  useEffect(() => {
-    let data = checkedList;
-    props.onFilterChange(data);
-  }, [checkedList]);
 
   return (
     <Container>
@@ -105,7 +97,7 @@ function ProductFilter(props) {
               onClick={() => {
                 console.log('按一下');
                 console.log(checkedMap);
-                console.log(checkedList);
+                console.log(chooseCategory);
               }}
               className="align-items-center link-dark text-decoration-none px-1"
             >
@@ -246,7 +238,7 @@ function ProductFilter(props) {
                     items: {},
                     origins: {},
                   });
-                  setCheckedList({
+                  setChooseCategory({
                     brands: [],
                     cates: [],
                     items: [],

@@ -4,8 +4,11 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ThisCard from '../ComponentShare/ThisCard';
 import { Button, Nav, Image, Col, Row, Container } from 'react-bootstrap';
+import { useProduct } from '../../Contexts/ProductProvider';
 
 function List() {
+  const { products, setProducts, chooseCategory, setChooseCategory } =
+    useProduct();
   const [error, setError] = useState(null);
   // const { stockId } = useParams();
   // 為了處理網址
@@ -31,25 +34,25 @@ function List() {
     console.log('page 改變的 useEffect', page);
     async function getData() {
       let response = await axios.get(
-        `http://localhost:3001/api/products/?page=${page}`
+        `http://localhost:3001/api/products/?page=${page}`,
+        {
+          params: {
+            // thePage: page,
+            setFilter: chooseCategory || '',
+          },
+        }
       );
+      console.log('response', response.data);
       setData(response.data.data);
       setTotalPage(response.data.pagination.totalPage);
     }
     getData();
   }, [page]);
 
-  // useEffect(() => {
-  //   console.log('page 改變的 useEffect', page);
-  //   async function getData() {
-  //     let response = await axios.get(
-  //       `http://localhost:3001/api/products/?page=${page}`
-  //     );
-  //     setData(response.data.data);
-  //     setTotalPage(response.data.pagination.totalPage);
-  //   }
-  //   getData();
-  // }, []);
+  useEffect(() => {
+    console.log('chooseCategory改變', chooseCategory);
+  }, [chooseCategory]);
+
   const getPages = () => {
     let pages = [];
     // 計算顯示的頁數範圍
