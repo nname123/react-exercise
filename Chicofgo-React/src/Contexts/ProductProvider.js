@@ -13,26 +13,20 @@ function ProductProvider(props) {
   const [chooseCategory, setChooseCategory] = useState({
     brands: [],
     cates: [],
-    items: [],
+    packages: [],
     origins: [],
+    theStyles: [],
+    theSearch: [],
   });
 
-  // async function getProducts() {
-  //   try {
-  //     const response = await axios.get('http://localhost:3001/api/products');
-  //     const output = response.data.map((item) => {
-  //       return {
-  //         ...item,
-  //         introduction: item.introduction.split('<br>').join('\n'),
-  //         detail: item.detail.split('<br>').join('\n'),
-  //       };
-  //     });
-  //     setProducts(output);
-  //   } catch (error) {}
-  // }
   return (
     <ProductContext.Provider
-      value={{ products, setProducts, chooseCategory, setChooseCategory }}
+      value={{
+        products,
+        setProducts,
+        chooseCategory,
+        setChooseCategory,
+      }}
     >
       {children}
     </ProductContext.Provider>

@@ -7,9 +7,7 @@ import { Button, Nav, Image, Col, Row, Container } from 'react-bootstrap';
 import { useProduct } from '../../Contexts/ProductProvider';
 
 function List() {
-  const { products, setProducts, chooseCategory, setChooseCategory } =
-    useProduct();
-  const [error, setError] = useState(null);
+  const { chooseCategory } = useProduct();
   // const { stockId } = useParams();
   // 為了處理網址
   let navigate = useNavigate();
@@ -30,27 +28,33 @@ function List() {
     cursor: 'pointer',
   };
 
+  // 拿資料
+  async function getData() {
+    let response = await axios.get(
+      `http://localhost:3001/api/products/?page=${page}`,
+      {
+        params: {
+          // thePage: page,
+          setFilter: chooseCategory || '',
+        },
+      }
+    );
+    console.log('response', response.data);
+    setData(response.data.data);
+    setTotalPage(response.data.pagination.totalPage);
+  }
+
   useEffect(() => {
-    console.log('page 改變的 useEffect', page);
-    async function getData() {
-      let response = await axios.get(
-        `http://localhost:3001/api/products/?page=${page}`,
-        {
-          params: {
-            // thePage: page,
-            setFilter: chooseCategory || '',
-          },
-        }
-      );
-      console.log('response', response.data);
-      setData(response.data.data);
-      setTotalPage(response.data.pagination.totalPage);
-    }
+    console.log('page 改變拿一次資料', page);
     getData();
   }, [page]);
 
   useEffect(() => {
-    console.log('chooseCategory改變', chooseCategory);
+    console.log('chooseCategory改變拿一次資料', chooseCategory);
+    if (page > 1) {
+      setPage(1);
+    }
+    getData();
   }, [chooseCategory]);
 
   const getPages = () => {
@@ -167,8 +171,6 @@ function List() {
   };
   return (
     <Container>
-      {error && <div>{error}</div>}
-
       <Row style={{ minHeight: '1470px' }}>
         {data.map((item) => {
           return (

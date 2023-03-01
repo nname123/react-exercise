@@ -6,10 +6,32 @@ const pool = require('../utils/db');
 router.get('/', async (req, res, next) => {
   // console.log('/api/products/:stockId => ', req.params.stockId);
   // 如果沒有 page 這個 query string 就預設為 1
+  console.log('get', req.query);
+  console.log('getSetFilter', req.query.setFilter);
+  const theFilter = req.query.setFilter || '';
+
   const page = req.query.page || 1;
   // 總筆數？
-  let [results] = await pool.execute('SELECT COUNT(*) AS total FROM product_list');
-  // console.log('GET /stocks/details -> count:', results[0].total);
+  // let [results] = await pool.execute('SELECT COUNT(*) AS total FROM product_list');
+  const sql = `
+  SELECT COUNT(*) AS total
+  FROM product_list
+  WHERE ${theFilter.brands?.length ? `brand LIKE '%${theFilter.brands.join("%' OR brand LIKE '%")}%'` : '1'}
+  AND ${theFilter.types?.length ? `type IN (SELECT id FROM product_type WHERE type LIKE '%${theFilter.types.join("%' OR type LIKE '%")}%')` : '1'}
+  AND ${theFilter.packages?.length ? `package IN (SELECT id FROM product_package WHERE package LIKE '%${theFilter.packages.join("%' OR package LIKE '%")}%')` : '1'}
+  AND ${theFilter.origins?.length ? `place_of_orgin IN (SELECT id FROM product_place_of_orgin WHERE place LIKE '%${theFilter.origins.join("%' OR place LIKE '%")}%')` : '1'}
+  AND ${
+    theFilter.theStyles?.length
+      ? `id IN (SELECT product_list FROM product_list_style_relation WHERE product_style IN (SELECT id FROM product_style WHERE style LIKE '%${theFilter.theStyles.join(
+          "%' OR style LIKE '%"
+        )}%'))`
+      : '1'
+  }
+  AND ${theFilter.theSearch?.length ? `name LIKE '%${theFilter.theSearch.join("%' OR name LIKE '%")}%'` : '1'}
+  `;
+  let [results] = await pool.execute(sql);
+  console.log('resultsresultsresultsresults', results);
+
   const total = results[0].total;
 
   // 總共有幾頁
@@ -21,7 +43,25 @@ router.get('/', async (req, res, next) => {
   const offset = perPage * (page - 1);
 
   // 根據 offset, limit 去取得資料
-  let [productsData] = await pool.execute('SELECT * FROM product_list ORDER BY id LIMIT ? OFFSET ?', [limit, offset]);
+  const productsDataSql = `
+  SELECT id
+  FROM product_list
+  WHERE ${theFilter.brands?.length ? `brand LIKE '%${theFilter.brands.join("%' OR brand LIKE '%")}%'` : '1'}
+  AND ${theFilter.types?.length ? `type IN (SELECT id FROM product_type WHERE type LIKE '%${theFilter.types.join("%' OR type LIKE '%")}%')` : '1'}
+  AND ${theFilter.packages?.length ? `package IN (SELECT id FROM product_package WHERE package LIKE '%${theFilter.packages.join("%' OR package LIKE '%")}%')` : '1'}
+  AND ${theFilter.origins?.length ? `place_of_orgin IN (SELECT id FROM product_place_of_orgin WHERE place LIKE '%${theFilter.origins.join("%' OR place LIKE '%")}%')` : '1'}
+  AND ${
+    theFilter.theStyles?.length
+      ? `id IN (SELECT product_list FROM product_list_style_relation WHERE product_style IN (SELECT id FROM product_style WHERE style LIKE '%${theFilter.theStyles.join(
+          "%' OR style LIKE '%"
+        )}%'))`
+      : '1'
+  }
+  AND ${theFilter.theSearch?.length ? `name LIKE '%${theFilter.theSearch.join("%' OR name LIKE '%")}%'` : '1'}
+  ORDER BY id LIMIT ? OFFSET ?
+  `;
+  let [productsData] = await pool.execute(productsDataSql, [limit, offset]);
+  // console.log('theFiltertheFiltertheFiltertheFiltertheFilter', productsDataSql);
 
   // 篩出id
   const data = productsData.map((obj) => {
@@ -29,6 +69,8 @@ router.get('/', async (req, res, next) => {
       id: obj.id,
     };
   });
+
+  // console.log('datadatadatadatadata', data);
 
   // 把資料回覆給前端
   res.json({
