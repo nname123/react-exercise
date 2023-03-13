@@ -30,7 +30,7 @@ function CollectItem() {
         {collects.map((v, i) => {
           return (
             <Col className={` col-6 col-md-4 col-xl-3  my-md-3 my-2`}>
-              <ThisCard product_id={v} />
+              <ThisCard product_id={v} goToUrl="/refresh" />
             </Col>
           );
         })}

@@ -47,8 +47,11 @@ function App() {
           <ScrollToTop>
             <Routes>
               <Route path="home" element={<Home />} />
+              <Route
+                path="refresh"
+                element={<Navigate to={-1} replace={true} />}
+              />
               <Route path="/" element={<Navigate to="home" replace={true} />} />
-              {/*product*/}
               <Route path="/products">
                 <Route path=":currentPage" element={<Products />} />
                 <Route path="/products" element={<Products />} />
@@ -58,11 +61,9 @@ function App() {
                   element={<ProductDetail />}
                 />
               </Route>
-              {/*product*/}
               <Route path="event" element={<Event />} />
               <Route path="coupon" element={<Coupon />} />
               <Route path="account" element={<Account />} />
-
               <Route path="orderHistory" element={<OrderHistory />} />
               <Route path="orderStatus" element={<OrderStatus />} />
               <Route path="login" element={<Login />} />
@@ -71,11 +72,6 @@ function App() {
                 path="/product_detail/:product_id"
                 element={<ProductDetail />}
               />
-
-              {/* <Route path="/">
-            <Route index element={}
-          </Route> */}
-
               <Route path="member" element={<Member />}>
                 <Route index element={<Account />} />
                 <Route path="account" element={<Account />} />

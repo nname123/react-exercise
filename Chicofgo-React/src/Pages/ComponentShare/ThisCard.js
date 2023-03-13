@@ -18,7 +18,8 @@ import { useAuth } from '../../Contexts/AuthContext';
 
 function ThisCard(props) {
   const { isLoggedIn, userid } = useAuth();
-  const { product_id } = props;
+  const { product_id, goToUrl } = props;
+  const redirectTo = goToUrl || '';
   const [backendData, setBackendData] = useState([]);
   const [title, setTitle] = useState([]);
   const [isShow, setIsShow] = useState(false);
@@ -31,6 +32,7 @@ function ThisCard(props) {
   const [showTFMsg, setShowTFMsg] = useState({ title: '', msg: '' });
   const handleCloseC = () => setIsShowC(false);
   const handleCloseTF = () => setShowTF(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getProductData() {
@@ -145,8 +147,16 @@ function ThisCard(props) {
       setIsShowC(false);
       if (response.status === 200) {
         console.log('刪除成功');
-        setShowTFMsg({ title: '刪除結果', msg: '刪除成功' });
         setShowTF(true);
+        // 重整頁面
+        if (redirectTo) {
+          setShowTFMsg({ title: '刪除結果', msg: '刪除成功,1秒後跳轉' });
+          const timeoutId = setTimeout(() => {
+            navigate(redirectTo);
+          }, 1000);
+        } else {
+          setShowTFMsg({ title: '刪除結果', msg: '刪除成功' });
+        }
       }
     } catch (e) {
       console.log('刪除失敗');
@@ -286,7 +296,6 @@ function ThisCard(props) {
                     as={Link}
                     to="/login"
                     variant="outline-chicofgo-green"
-                    onClick={handleCloseC}
                   >
                     前往登入
                   </Button>

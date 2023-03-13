@@ -7,11 +7,8 @@ import { Button, Form, InputGroup, Col, Row, Container } from 'react-bootstrap';
 const Products = () => {
   return (
     <Container fluid>
-      <Row>
-        <Col className="my-3"></Col>
-      </Row>
-      <Row>
-        <Col className="col-3 ">
+      <Row className="justify-content-evenly">
+        <Col className="col-auto">
           <ProductFilter />
         </Col>
         <Col className="col-9">
