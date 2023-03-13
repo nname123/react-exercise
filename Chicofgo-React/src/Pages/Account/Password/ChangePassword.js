@@ -62,9 +62,6 @@ function ChangePassword() {
           confirmPasswordError: '',
           confirmPassword: false,
         });
-        // 島葉
-        // setPasswordData({ ...passwordData, [e.target.name]: '' });
-        // e.target.reset();
       }
     } catch (e) {
       if (e.response.status === 401) {
@@ -107,7 +104,6 @@ function ChangePassword() {
           </h2>
           <Form.Floating className="mb-3 chicofgo_brown_font">
             <Form.Control
-              // id="floatingInputCustom"
               placeholder="帳號"
               type="email"
               name="account"
@@ -122,8 +118,6 @@ function ChangePassword() {
           </Form.Floating>
           <Form.Floating className="my-3 chicofgo_brown_font">
             <Form.Control
-              // id="floatingPasswordCustom"
-              // className="fs-6"
               type="password"
               name="oldPassword"
               placeholder="請輸入舊密碼"
@@ -137,7 +131,6 @@ function ChangePassword() {
           </Form.Floating>
           <Form.Floating className="my-3 chicofgo_brown_font">
             <Form.Control
-              // id="floatingPasswordCustom"
               type={passwordIsOpen ? 'text' : 'password'}
               name="password"
               placeholder="請輸入新密碼"
@@ -151,7 +144,6 @@ function ChangePassword() {
           </Form.Floating>
           <Form.Floating className="my-3 chicofgo_brown_font">
             <Form.Control
-              // id="floatingPasswordCustom"
               type={passwordIsOpen ? 'text' : 'password'}
               placeholder="請確認新密碼"
               name="confirmPassword"
@@ -169,7 +161,6 @@ function ChangePassword() {
             name="group1"
             type="checkbox"
             onClick={passwordOpen}
-            // id={`inline-${type}-3`}
           />
           <div className="text-center my-3">
             <Button
@@ -181,11 +172,10 @@ function ChangePassword() {
             </Button>
             <PopupWindow
               show={showModal}
-              // onclose={() => setShowModal(false)}
-              onclose={() => navigate('/member')}
+              onclose={() => navigate('/refresh')}
               title="修改結果"
               content="成功修改!"
-              btnContent="回到會員中心"
+              btnContent="確定"
             />
           </div>
         </Col>

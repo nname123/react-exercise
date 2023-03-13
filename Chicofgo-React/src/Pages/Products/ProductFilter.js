@@ -172,8 +172,6 @@ function ProductFilter() {
   const [open, setOpen] = useState([]);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  // const [open, setOpen] = useState(false);
   const [checkedMap, setCheckedMap] = useState({
     brands: {},
     types: {},
@@ -183,12 +181,10 @@ function ProductFilter() {
   });
 
   const [theSearch, setTheSearch] = useState('');
-
   const handleInputChange = (event) => {
-    console.log('輸入', event.target.value);
+    // console.log('輸入', event.target.value);
     setTheSearch(event.target.value);
   };
-
   const handleCheck = (event) => {
     const {
       dataset: { type, name },
@@ -216,7 +212,6 @@ function ProductFilter() {
         [type]: newList,
       };
     });
-
     console.log('checkedMap', checkedMap);
   };
   useEffect(() => {
@@ -271,7 +266,7 @@ function ProductFilter() {
   return (
     <Container style={{ position: 'sticky', top: '65px' }}>
       <Row>
-        <Col className="justify-content-center">
+        <Col className="justify-content-center p-0 ">
           <Nav
             variant="pills"
             defaultActiveKey="/home"
@@ -291,7 +286,7 @@ function ProductFilter() {
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton className="bg-light">
           <Offcanvas.Title>
-            <span className=" fs-4 fw-semibold">商品篩選</span>
+            <span className="px-1 fs-4 fw-semibold">商品篩選</span>
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>

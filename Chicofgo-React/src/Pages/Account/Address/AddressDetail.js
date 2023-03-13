@@ -314,10 +314,10 @@ function AddressDetail() {
           </Button>
           <PopupWindow
             show={showModal}
-            onclose={() => navigate('/member')}
+            onclose={() => navigate('/refresh')}
             title="修改結果"
             content="成功修改!"
-            btnContent="回到會員中心"
+            btnContent="確定"
           />
         </div>
       </Collapse>

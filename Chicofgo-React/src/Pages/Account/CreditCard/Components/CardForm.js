@@ -8,7 +8,6 @@ import PopupWindow from '../../../ComponentShare/PopupWindow';
 import { useNavigate } from 'react-router-dom';
 
 function CardForm() {
-
   const navigate = useNavigate();
   const [submittedData, setSubmittedData] = useState({});
   const [backendData, setBackendData] = useState({});
@@ -101,7 +100,6 @@ function CardForm() {
   }
   return (
     <Form className={`cardForm chicofgo-font`} Validate>
-      {/* // <form className={`cardForm chicofgo-font`}> */}
       <h2 className={`text-center chicofgo-font-700 chicofgo_brown_font pb-3`}>
         信用卡修改
       </h2>
@@ -126,7 +124,6 @@ function CardForm() {
         <div id="example-collapse-text">
           <Row className="my-2">
             <Form.Group as={Col} md="12" controlId="validationCustom01">
-              {/* <Form.Label>First name</Form.Label> */}
               <Form.Control
                 required
                 type="text"
@@ -136,7 +133,6 @@ function CardForm() {
                 value={submittedData.name}
                 onChange={handleChange}
                 isInvalid={errors.nameError}
-                // onChange={(e) => setName(e.target.value)}
               />
               <Form.Control.Feedback type="invalid">
                 {errors.nameError}
@@ -152,7 +148,6 @@ function CardForm() {
                 value={submittedData.cardNumber}
                 name="cardNumber"
                 maxLength={16}
-                // onChange={(e) => setCardNumber(e.target.value)}
                 onChange={handleChange}
                 isInvalid={errors.cardNumberError}
               />
@@ -170,7 +165,6 @@ function CardForm() {
                 value={submittedData.expiry}
                 name="expiry"
                 maxLength={4}
-                // onChange={(e) => setExpiry(e.target.value)}
                 onChange={handleChange}
                 isInvalid={errors.expiry}
               />
@@ -207,19 +201,11 @@ function CardForm() {
           <PopupWindow
             show={showModal}
             // onclose={() => setShowModal(false)}
-            onclose={() => navigate('/member')}
+            onclose={() => navigate('/refresh')}
             title="修改結果"
             content="成功修改!"
-            btnContent="回到會員中心"
+            btnContent="確定"
           />
-
-          {/* <button
-            type="submit"
-            className={`btn btn-chicofgo-green btn-block mt-2`}
-            onClick={handleSubmit}
-          >
-            送出
-          </button> */}
         </div>
       </Collapse>
       {/* </form> */}

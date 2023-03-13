@@ -44,7 +44,10 @@ function Home() {
               <Nav.Item>
                 <Nav.Link
                   onClick={() => {
-                    setChooseCategory(['即飲咖啡']);
+                    setChooseCategory((prev) => ({
+                      ...prev,
+                      types: ['即飲咖啡'],
+                    }));
                     navigate('/products/category');
                   }}
                 >
@@ -55,7 +58,10 @@ function Home() {
               <Nav.Item>
                 <Nav.Link
                   onClick={() => {
-                    setChooseCategory(['即溶咖啡']);
+                    setChooseCategory((prev) => ({
+                      ...prev,
+                      types: ['即溶咖啡'],
+                    }));
                     navigate('/products/category');
                   }}
                 >
@@ -66,7 +72,10 @@ function Home() {
               <Nav.Item>
                 <Nav.Link
                   onClick={() => {
-                    setChooseCategory(['咖啡豆']);
+                    setChooseCategory((prev) => ({
+                      ...prev,
+                      types: ['咖啡豆'],
+                    }));
                     navigate('/products/category');
                   }}
                 >
@@ -76,7 +85,10 @@ function Home() {
               <Nav.Item>
                 <Nav.Link
                   onClick={() => {
-                    setChooseCategory(['咖啡膠囊']);
+                    setChooseCategory((prev) => ({
+                      ...prev,
+                      types: ['咖啡膠囊'],
+                    }));
                     navigate('/products/category');
                   }}
                 >
@@ -86,7 +98,10 @@ function Home() {
               <Nav.Item>
                 <Nav.Link
                   onClick={() => {
-                    setChooseCategory(['奶精']);
+                    setChooseCategory((prev) => ({
+                      ...prev,
+                      types: ['奶精'],
+                    }));
                     navigate('/products/category');
                   }}
                 >
@@ -96,7 +111,10 @@ function Home() {
               <Nav.Item>
                 <Nav.Link
                   onClick={() => {
-                    setChooseCategory(['濾掛式/茶包式']);
+                    setChooseCategory((prev) => ({
+                      ...prev,
+                      types: ['濾掛式/茶包式'],
+                    }));
                     navigate('/products/category');
                   }}
                 >
@@ -106,7 +124,10 @@ function Home() {
               <Nav.Item>
                 <Nav.Link
                   onClick={() => {
-                    setChooseCategory(['咖啡粉']);
+                    setChooseCategory((prev) => ({
+                      ...prev,
+                      types: ['咖啡粉'],
+                    }));
                     navigate('/products/category');
                   }}
                 >
@@ -162,7 +183,9 @@ function Home() {
             <Col
               className={`${style.pageTwoBg} col-2 position-relative  d-none d-xl-inline`}
             >
-              <p className={`position-absolute top-0 start-2 translate-middle `}>
+              <p
+                className={`position-absolute top-0 start-2 translate-middle `}
+              >
                 New!
               </p>
               <CardListS
@@ -204,7 +227,9 @@ function Home() {
             <Col
               className={`${style.pageTwoBg} col-md-6 position-relative text-center`}
             >
-              <h5 className={`position-absolute top-0 start-2 translate-middle `}>
+              <h5
+                className={`position-absolute top-0 start-2 translate-middle `}
+              >
                 限時
                 <br />
                 搶購

@@ -171,12 +171,15 @@ function List() {
   };
   return (
     <Container>
-      <Row style={{ minHeight: '1470px' }}>
+      <Row
+        className="px-4"
+        // style={{ minHeight: '1470px' }}
+      >
         {data.map((item) => {
           return (
             <Col
               key={item.id}
-              className="col-6  col-md-4 col-lg-3 col-xxl-2 my-2 my-xxl-1"
+              className="col-6 col-md-4 col-lg-3 col-xxl-2 my-2 my-xxl-1"
             >
               <ThisCard product_id={item.id} />
             </Col>
